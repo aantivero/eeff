@@ -1,0 +1,26 @@
+package com.aantivero.eeff;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
+
+@RestController
+public class EntidadController {
+
+    private EntidadRepository repository;
+
+    public EntidadController(EntidadRepository repository) {
+        this.repository = repository;
+    }
+
+    @GetMapping("/bancos")
+    public Collection<Entidad> bancos() {
+        return repository.findAll().stream().filter(this::isBanco).collect(Collectors.toList());
+    }
+
+    private boolean isBanco(Entidad entidad) {
+        return entidad.getCodigoNumerico() < 1000;
+    }
+}
