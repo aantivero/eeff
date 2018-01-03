@@ -15,4 +15,5 @@ public class Entidad {
     private Long id;
     private String codigo;
     private String denominacion;
+    private Integer codigoNumerico;
 }
