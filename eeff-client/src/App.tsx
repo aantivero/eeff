@@ -7,9 +7,9 @@ class App extends React.Component<{}, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            bancos:[],
+            bancos: [],
             isLoading: false
-        }
+        };
     }
 
     componentDidMount() {
@@ -23,7 +23,7 @@ class App extends React.Component<{}, any> {
     render() {
         const {bancos, isLoading} = this.state;
         if (isLoading) {
-            return <p>Cargando....</p>
+            return <p>Cargando....</p>;
         }
         return (
             <div className="App">
@@ -41,7 +41,7 @@ class App extends React.Component<{}, any> {
                 </div>
             </div>
 
-        )
+        );
     }
 }
 
