@@ -22,6 +22,12 @@ public class EntidadController {
         return repository.findAll().stream().filter(this::isBanco).collect(Collectors.toList());
     }
 
+    @GetMapping("/entidades")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public Collection<Entidad> entidades() {
+        return repository.findAll().stream().collect(Collectors.toList());
+    }
+
     private boolean isBanco(Entidad entidad) {
         return entidad.getCodigoNumerico() < 1000;
     }
