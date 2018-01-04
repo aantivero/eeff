@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LogoImage from "./LogoImage";
 
 class EntidadList extends React.Component<{}, any> {
     constructor(props: any) {
@@ -30,7 +31,8 @@ class EntidadList extends React.Component<{}, any> {
                 <h2>Entidades Financieras</h2>
                 {bancos.map((banco: any) =>
                     <div key={banco.id}>
-                        {banco.denominacion}
+                        {banco.denominacion}<br/>
+                        <LogoImage codigo={banco.codigo} denominacion={banco.denominacion}/>
                     </div>
                 )}
             </div>
