@@ -6,7 +6,7 @@ class EntidadList extends React.Component<{}, any> {
         super(props);
 
         this.state = {
-            bancos: [],
+            entidades: [],
             isLoading: false
         };
     }
@@ -14,13 +14,13 @@ class EntidadList extends React.Component<{}, any> {
     componentDidMount() {
         this.setState({isLoading: true});
 
-        fetch('http://localhost:8080/bancos')
+        fetch('http://localhost:8080/entidades')
             .then(response => response.json())
-            .then(data => this.setState({bancos: data, isLoading: false}));
+            .then(data => this.setState({entidades: data, isLoading: false}));
     }
 
     render() {
-        const {bancos, isLoading} = this.state;
+        const {entidades, isLoading} = this.state;
 
         if(isLoading) {
             return <p>Cargando...</p>;
@@ -29,10 +29,10 @@ class EntidadList extends React.Component<{}, any> {
         return (
             <div>
                 <h2>Entidades Financieras</h2>
-                {bancos.map((banco: any) =>
-                    <div key={banco.id}>
-                        {banco.denominacion}<br/>
-                        <LogoImage codigo={banco.codigo} denominacion={banco.denominacion}/>
+                {entidades.map((entidad: any) =>
+                    <div key={entidad.id}>
+                        {entidad.denominacion}<br/>
+                        <LogoImage codigo={entidad.codigo} denominacion={entidad.denominacion}/>
                     </div>
                 )}
             </div>
