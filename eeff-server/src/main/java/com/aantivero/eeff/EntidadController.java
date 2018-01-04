@@ -17,13 +17,13 @@ public class EntidadController {
     }
 
     @GetMapping("/bancos")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5000"})
     public Collection<Entidad> bancos() {
         return repository.findAll().stream().filter(this::isBanco).collect(Collectors.toList());
     }
 
     @GetMapping("/entidades")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5000"})
     public Collection<Entidad> entidades() {
         return repository.findAll().stream().collect(Collectors.toList());
     }
