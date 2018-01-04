@@ -1,5 +1,6 @@
 package com.aantivero.eeff;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ public class EntidadController {
     }
 
     @GetMapping("/bancos")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Collection<Entidad> bancos() {
         return repository.findAll().stream().filter(this::isBanco).collect(Collectors.toList());
     }
